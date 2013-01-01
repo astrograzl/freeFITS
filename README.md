@@ -1,4 +1,4 @@
 freeFITS
 ========
 
-modify licence information in FITS header
+modify license information in FITS header

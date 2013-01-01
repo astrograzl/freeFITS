@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-#    freeFITS.py: modify licence information in FITS header
+#    freeFITS.py: modify license information in FITS header
 #    Copyright (C) 2013  Zdeněk Janák <janak@physics.muni.cz>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -20,13 +20,13 @@
 import warnings
 import argparse
 import pyfits
-
+import sys
 
 ## keywords
-lickeys = ("LICENCE", "LICVER", "LICURL")
+lickeys = ("LICENSE", "LICVER", "LICURL")
 
 
-## licences
+## licenses
 liclist = {
     "cc0": {
         "name": "CC0",
@@ -63,42 +63,42 @@ liclist = {
         "ver": "3.0",
         "url": "http://creativecommons.org/licenses/by-nc-nd/3.0/"
     },
-    "pd": {
-        "name": "Public Domain",
+    "pdm": {
+        "name": "Public Domain Mark",
         "ver": "1.0",
         "url": "http://creativecommons.org/publicdomain/mark/1.0/"
     }
 }
 
 
-def list_licences(licences):
-    """Print list of available licences"""
-    print("Available licences:")
-    for licence in licences:
-        print("{0}: {name} {ver} ({url})".format(licence, **licences[licence]))
+def list_licenses(licenses):
+    """Print list of available licenses"""
+    #print("Available licenses:\n")
+    for license in licenses:
+        print("{0}: {name} {ver} ({url})".format(license, **licenses[license]))
 
 
-def info_licence(fitsfile):
-    """Print licence information stored in FITS"""
+def info_license(fitsfile):
+    """Print license information stored in FITS"""
     try:
-        licence = pyfits.getval(fitsfile, "LICENCE")
+        license = pyfits.getval(fitsfile, "LICENSE")
     except KeyError:
-        print("Licence information not found.")
+        print("License information not found.")
     else:
         licver = pyfits.getval(fitsfile, "LICVER")
         licurl = pyfits.getval(fitsfile, "LICURL")
-        print("{lic} {ver} ({url})".format(lic=licence, ver=licver, url=licurl))
+        print("{lic} {ver} ({url})".format(lic=license, ver=licver, url=licurl))
 
 
-def add_licence(fitsfile, lic):
-    """Add licence information to FITS"""
+def add_license(fitsfile, lic):
+    """Add license information to FITS"""
     try:
         hdulist = pyfits.open(fitsfile, mode="update")
     except:
         print("Oops! Something's gone wrong :-(", file=sys.stderr)
     else:
         prihdr = hdulist[0].header
-        prihdr["LICENCE"] = liclist[lic]["name"]
+        prihdr["LICENSE"] = liclist[lic]["name"]
         prihdr["LICVER"] = liclist[lic]["ver"]
         prihdr["LICURL"] = liclist[lic]["url"]
         add_comments(prihdr)
@@ -108,37 +108,43 @@ def add_licence(fitsfile, lic):
 def add_comments(header):
     """Add comments to header keywords"""
     try:
-        header.comments["LICENCE"] = "Licence of data"
-        header.comments["LICVER"] = "Version of licence"
-        header.comments["LICURL"] = "URL of licence"
+        header.comments["LICENSE"] = "License of data"
+        header.comments["LICVER"] = "Version of license"
+        header.comments["LICURL"] = "URL of license"
     except:
         print("Oops! Something's gone wrong :-(", file=sys.stderr)
 
 
-def del_licence(fitsfile, keys):
-    """Delete licence information from FITS"""
+def del_license(fitsfile, keys):
+    """Delete license information from FITS"""
     try:
         for key in keys:
             pyfits.delval(fitsfile, key)
     except KeyError:
-        print("Licence information not found.", file=sys.stderr)
+        print("License information not found.", file=sys.stderr)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("fitsfile", help="name of FITS file")
-    parser.add_argument("-l", "--list", help="list available licences", action="store_true")
-    parser.add_argument("-i", "--info", help="show licence information in FITS file", action="store_true")
-    parser.add_argument("-a", "--add", help="add licence information to FITS file")
-    parser.add_argument("-d", "--delete", help="delete licence information from FITS file", action="store_true")
+    parser.add_argument("fitsfile",
+                        help="name of FITS file")
+    parser.add_argument("-l", "--list",
+                        help="list available licenses", action="store_true")
+    parser.add_argument("-i", "--info",
+                        help="show license information in FITS file",
+                        action="store_true")
+    parser.add_argument("-a", "--add",
+                        help="add license information to FITS file")
+    parser.add_argument("-d", "--delete",
+                        help="delete license information from FITS file",
+                        action="store_true")
     args = parser.parse_args()
-    
-    if args.list:
-        list_licences(liclist)
-    elif args.info:
-        info_licence(args.fitsfile)
-    elif args.add:
-        add_licence(args.fitsfile, args.add)
-    elif args.delete:
-        del_licence(args.fitsfile, lickeys)
 
+    if args.list:
+        list_licenses(liclist)
+    elif args.info:
+        info_license(args.fitsfile)
+    elif args.add:
+        add_license(args.fitsfile, args.add)
+    elif args.delete:
+        del_license(args.fitsfile, lickeys)
