@@ -1,12 +1,12 @@
 freeFITS
 ========
 
-modify license information in FITS header
+Modify license information in FITS header.
 
 
 Overview
 --------
-`freeFITS.py` is dedicated simple script writen in Python language designed to modify [FITS](http://en.wikipedia.org/wiki/FITS) file header. It can display, modify, add and/or delete license information stored in it.
+`freeFITS.py` is a simple script written in Python language designed to change [FITS](http://en.wikipedia.org/wiki/FITS) file header. It can display, modify, add and delete license information stored in it.
 
 To store license information is used three non-standard keywords:
 
@@ -17,13 +17,13 @@ To store license information is used three non-standard keywords:
 
 Requirements
 ------------
-Runtime requirement is Python interpreter in version >= 3.0. Aditional requirement is [PyFITS](http://www.stsci.edu/institute/software_hardware/pyfits), which can be download from [Python Packaing Index](http://pypi.python.org/pypi/pyfits). Note that PyFITS itself depend on [NumPy](http://www.numpy.org/).
+Runtime requirement is a Python interpreter with version >= 3.0. Aditional requirement is [PyFITS](http://www.stsci.edu/institute/software_hardware/pyfits), which may be downloaded from [Python Packaing Index](http://pypi.python.org/pypi/pyfits). Note that PyFITS itself depend on [NumPy](http://www.numpy.org/).
 
 
 
 Installation
 ------------
-There is no need to install `freeFITS.py`. Just place it somewhere and run. Or you can move it to the user or system `bin` directory specified in your `$PATH` environment variable.
+There is no need to install `freeFITS.py`. Just place it somewhere and run. Or you may move it to the user or the system bin/ directory specified in your `$PATH` environment variable.
 
 
 Usage
@@ -42,7 +42,7 @@ To obtain information about usage run as `freeFITS.py -h` and you get this listi
       -a ADD, --add ADD  add license information to FITS file
       -d, --delete       delete license information from FITS file
 
-To list available licenses run as `freeFITS.py -l /dev/null`. The identifier at first posittion in listing
+To list available licenses run as `freeFITS.py -l /dev/null`. The identifier at first position in listing
 
     cc_by: CC BY 3.0 (http://creativecommons.org/licenses/by/3.0/)
     cc_by_nc_nd: CC BY-NC-ND 3.0 (http://creativecommons.org/licenses/by-nc-nd/3.0/)
@@ -53,14 +53,14 @@ To list available licenses run as `freeFITS.py -l /dev/null`. The identifier at 
     pdm: Public Domain Mark 1.0 (http://creativecommons.org/publicdomain/mark/1.0/)
     cc_by_sa: CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)
 
-is used to identity the license you would like to add to your FITS file.
+is used to identify the license you would like to add to your FITS file.
 
 To mark your FITS file as *Public Domain* just run `freeFITS.py -a pdm fitsfile.fits`.
 
 
 Licenses
 --------
-By default, there are available licences listed at **Creative Commons** [site](http://creativecommons.org/licenses/). Please feel free to extend the list of available licenses according to your needs.
+By default are available licenses listed on the **Creative Commons** [site](http://creativecommons.org/licenses/). Please feel free to extend the list of available licenses according to your needs.
 
 
 Copyright
