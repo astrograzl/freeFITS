@@ -41,7 +41,7 @@ Pro získání nápovědy spusťte program s parametrem `--help`, načež získ�
       -a ADD, --add ADD  add license information to FITS file
       -d, --delete       delete license information from FITS file
 
-Pro výpis dostupných licencí spusťte program jako `freeFITS.py --list /dev/null`. (Soubor /dev/null zde supluje FITS snímek, který je povinným parametrem i v případě, že jeho uvedení není nijak opodstatněné.)Identifikátor na první pozici ve výpisu
+Pro výpis dostupných licencí spusťte program jako `freeFITS.py --list /dev/null`. (Soubor /dev/null zde supluje FITS snímek, který je povinným parametrem i v případě, že jeho uvedení není nijak opodstatněné.) Identifikátor na první pozici ve výpisu
 
     cc_by: CC BY 3.0 (http://creativecommons.org/licenses/by/3.0/)
     cc_by_nc_nd: CC BY-NC-ND 3.0 (http://creativecommons.org/licenses/by-nc-nd/3.0/)
