@@ -22,6 +22,7 @@ import argparse
 import pyfits
 import sys
 
+
 ## keywords
 lickeys = ("LICENSE", "LICVER", "LICURL")
 
