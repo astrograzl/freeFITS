@@ -1,34 +1,33 @@
 freeFITS
 ========
 
-Modify license information in FITS header.
+Úprava licenčních informací v hlavičce FITS snímku.
 
 
-Overview
---------
-`freeFITS.py` is a simple script written in Python language designed to change [FITS](http://en.wikipedia.org/wiki/FITS) file header. It can display, modify, add and delete license information stored in it.
+Přehled
+-------
+`freeFITS.py` je jednoduchý a jednoúčelový skript napsaný v jazyce Python, sloužící k úpravě hlavičky [FITS](http://en.wikipedia.org/wiki/FITS) snímku. Dokáže zobrazit, upravit, přidat a odstranit informace o licenci v ní uložené.
 
-To store license information is used three non-standard keywords:
+K uložení informací o licenci se používají tři **nestandardní** klíčová slova:
 
-* `LICENSE` -- name of the license
-* `LICVER` -- version of the license
-* `LICURL` -- URL of the license's text
-
-
-Requirements
-------------
-Runtime requirement is a Python interpreter with version >= 3.0. Aditional requirement is [PyFITS](http://www.stsci.edu/institute/software_hardware/pyfits), which may be downloaded from [Python Packaing Index](http://pypi.python.org/pypi/pyfits). Note that PyFITS itself depend on [NumPy](http://www.numpy.org/).
+* `LICENSE` -- označení licence
+* `LICVER` -- číslo verze licence
+* `LICURL` -- URL směřující k textu licence
 
 
+Požadavky
+---------
+Pro běh programu je zapotřebí interpret jazyka Python ve verzi >= 3.0. Dodatečným požadavkem je modul [PyFITS](http://www.stsci.edu/institute/software_hardware/pyfits), který lze stáhnout z [Python Packaing Index](http://pypi.python.org/pypi/pyfits). Berte na vědomí, že samotný modul PyFITS závisí dále na modulu [NumPy](http://www.numpy.org/).
 
-Installation
-------------
-There is no need to install `freeFITS.py`. Just place it somewhere and run. Or you may move it to the user or the system bin/ directory specified in your `$PATH` environment variable.
+
+Instalace
+---------
+Program není třeba speciálně instalovat. Stačí jej uložit kamkoliv na pevný disk Vašeho počítače a spustit. Případně jej můžete umístit do některého ze systémového nebo uživatelského adresáře bin/ uvedeného v proměnné prostředí `$PATH`.
 
 
-Usage
------
-To obtain information about usage run as `freeFITS.py -h` and you get this listing
+Použití
+-------
+Pro získání nápovědy spusťte program s parametrem `--help`, načež získáte následující výpis:
 
     usage: freeFITS.py [-h] [-l] [-i] [-a ADD] [-d] fitsfile
 
@@ -42,7 +41,7 @@ To obtain information about usage run as `freeFITS.py -h` and you get this listi
       -a ADD, --add ADD  add license information to FITS file
       -d, --delete       delete license information from FITS file
 
-To list available licenses run as `freeFITS.py -l /dev/null`. The identifier at first position in listing
+Pro výpis dostupných licencí spusťte program jako `freeFITS.py --list /dev/null`. (Soubor /dev/null zde supluje FITS snímek, který je povinným parametrem i v případě, že jeho uvedení není nijak opodstatněné.)Identifikátor na první pozici ve výpisu
 
     cc_by: CC BY 3.0 (http://creativecommons.org/licenses/by/3.0/)
     cc_by_nc_nd: CC BY-NC-ND 3.0 (http://creativecommons.org/licenses/by-nc-nd/3.0/)
@@ -53,14 +52,14 @@ To list available licenses run as `freeFITS.py -l /dev/null`. The identifier at 
     pdm: Public Domain Mark 1.0 (http://creativecommons.org/publicdomain/mark/1.0/)
     cc_by_sa: CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)
 
-is used to identify the license you would like to add to your FITS file.
+slouží k určení licence, kterou byste rádi přidali do hlavičky Vašeho FITS snímku.
 
-To mark your FITS file as *Public Domain* just run `freeFITS.py -a pdm fitsfile.fits`.
+Pro označení vašeho FITS snímku jako *Public Domain* prostě spusťte program jako `freeFITS.py --add pdm fitsfile.fits`.
 
 
-Licenses
---------
-By default are available licenses listed on the **Creative Commons** [site](http://creativecommons.org/licenses/). Please feel free to extend the list of available licenses according to your needs.
+Licence
+-------
+Ve výchozím stavu jsou dostupné licence uvedená na [stránce](http://creativecommons.org/licenses/) **Creative Commons**. Prosím ciťte se svobodní při rozšíření seznamu dostupných licencí podle Vašich vlastních potřeb.
 
 
 Copyright
