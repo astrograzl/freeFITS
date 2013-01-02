@@ -6,7 +6,7 @@ modify license information in FITS header
 
 Overview
 --------
-`freeFITS.py` is dedicated simple script writen in `Python` language designed to modify [FITS](http://en.wikipedia.org/wiki/FITS) file header. It can display, modify, add and/or delete license information stored in it.
+`freeFITS.py` is dedicated simple script writen in Python language designed to modify [FITS](http://en.wikipedia.org/wiki/FITS) file header. It can display, modify, add and/or delete license information stored in it.
 
 To store license information is used three non-standard keywords:
 
@@ -17,7 +17,7 @@ To store license information is used three non-standard keywords:
 
 Requirements
 ------------
-Runtime requirement is `Python` interpreter in version >= 3.0. Aditional requirement is [`PyFITS`](http://www.stsci.edu/institute/software_hardware/pyfits), which can be download from [Python Packaing Index](http://pypi.python.org/pypi/pyfits). Note that `PyFITS` itself depend on [`NumPy`](http://www.numpy.org/).
+Runtime requirement is Python interpreter in version >= 3.0. Aditional requirement is [PyFITS](http://www.stsci.edu/institute/software_hardware/pyfits), which can be download from [Python Packaing Index](http://pypi.python.org/pypi/pyfits). Note that PyFITS itself depend on [NumPy](http://www.numpy.org/).
 
 
 
